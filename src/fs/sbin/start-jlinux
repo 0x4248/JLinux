@@ -1,0 +1,30 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-only
+# JLinux
+# JLinux is a linux filesystem patcher that makes linux boot directly into a JAR file.
+#
+# sbin/start-jlinux
+#
+# Copyright (C) 2024 0x4248
+
+blue='\033[0;34m'
+nc='\033[0m'
+
+echo "[ JLinux ] Start script call initiated"
+if [ -f /jlinux/etc/setup ]; then
+    echo "[ JLinux ] Setup already done"
+    echo "[ JLinux ] Starting JLinux"
+    echo -e "Welcome to ${blue}JLinux${nc}"
+    echo "[ JLinux ] Starting boot.jar as a process"
+    java -jar /jlinux/jars/boot.jar
+    if [ $? -eq 0 ]; then
+        wait $!
+        echo "---[ JLinux panic - boot.jar crashed or process was killed ]---"
+    else
+        echo "---[ JLinux panic - boot.jar was not started or crashed ]---"
+    fi
+else
+    echo "[ JLinux ] Setup not done"
+    echo "[ JLinux ] Running setup script"
+    sh /sbin/jlinux-setup
+fi

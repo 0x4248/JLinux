@@ -1,0 +1,33 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-only
+# JLinux
+# JLinux is a linux filesystem patcher that makes linux boot directly into a JAR file.
+#
+# sbin/jlinux-setup
+#
+# Copyright (C) 2024 0x4248
+
+clear
+echo "       _ _      _____ _   _ _    ___   __"
+echo "      | | |    |_   _| \ | | |  | \ \ / /"
+echo "      | | |      | | |  \| | |  | |\ V / "
+echo "  _   | | |      | | | . ' | |  | | > <  "
+echo " | |__| | |____ _| |_| |\  | |__| |/ . \ "
+echo "  \____/|______|_____|_| \_|\____//_/ \_\\"                                   
+echo "[ JLinux ] Onetime setup script initiated"
+echo "[ JLinux ] Setting up JLinux"
+echo "[ JLinux ] Creating JLinux directory"
+mkdir /jlinux
+mkdir /jlinux/etc
+mkdir /jlinux/jars
+echo "[ JLinux ] Installing Java 11"
+apk update
+apk upgrade
+apk 
+apk add openjdk11 openjdk11-jre openjdk11-jmods openjdk11-jdk --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+echo "[ JLinux ] Java 11 installed"
+echo "[ JLinux ] Setting setup flag"
+cat "Dont remove this file!" >> /jlinux/etc/setup
+cat "This tells JLinux that the setup has been already done." >> /jlinux/etc/setup
+echo "[ JLinux ] Setup complete"
+reboot
