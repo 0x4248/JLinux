@@ -10,7 +10,7 @@ BUILD = build
 SRC = src
 SRC_FS = $(SRC)/fs
 
-BOOT_JAR = examples/hello_world/boot.jar
+BOOT_JAR = examples/JexerExample/boot.jar
 
 all: build-demos build
 

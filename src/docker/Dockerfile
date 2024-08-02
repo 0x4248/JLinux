@@ -10,7 +10,7 @@ FROM alpine:3.14
 
 RUN apk update
 RUN apk add gcc make --no-cache
-RUN apk add openjdk11 openjdk11-jre openjdk11-jmods openjdk11-jdk --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+RUN apk add openjdk11 openjdk11-jre openjdk11-jmods openjdk11-jdk maven --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 
 WORKDIR /jlinux
 

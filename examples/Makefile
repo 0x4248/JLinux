@@ -6,7 +6,7 @@
 #
 # Copyright (C) 2024 0x4248
 
-BUILD_DIRS = hello_world
+BUILD_DIRS = hello_world JexerExample
 
 all: clean $(BUILD_DIRS)
 
