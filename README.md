@@ -1,7 +1,7 @@
 # JLinux
 
 >[!warning]
-> This projext is **now archived** and is being maintained over at [SysPatch](https://github.com/0x4248/SysPatch)
+> This project is **now archived** and is being maintained over at [SysPatch](https://github.com/0x4248/SysPatch)
 
 JLinux is a alpine linux filesystem patcher that allows you to run Java applications on boot.
 
